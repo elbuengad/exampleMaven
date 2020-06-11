@@ -46,6 +46,17 @@ public class GenericPropertyLoader {
             logger.warn("Properties file not found, using default values...");
         }
 
+        loadPortFromSystemProperties();
+
+    }
+
+    public void loadPortFromSystemProperties() {
+        try {
+            Constants.SERVER_PORT = Integer.parseInt(System.getProperty("http.port"));
+            logger.info("Overriding port number through system property");
+        } catch (NumberFormatException | NullPointerException e) {
+            logger.info("No port defined by command line, using file from properties, or default value");
+        }
     }
 
     private void initConstantsFromPropertiesFile(Properties properties) {
