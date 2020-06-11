@@ -133,7 +133,7 @@ public class Server extends AbstractVerticle {
                     }
                 });
 
-        vertx.createHttpServer().requestHandler(router).listen(Constants.SERVER_PORT);
+        vertx.createHttpServer().requestHandler(router).listen(config().getInteger("http.port", Constants.SERVER_PORT));
 
     }
 

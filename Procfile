@@ -1,1 +1,1 @@
-web: java -jar target/exampleMaven-1.0-SNAPSHOT.jar
+web: java -Dhttp.port=$PORT -jar target/exampleMaven-1.0-SNAPSHOT.jar
